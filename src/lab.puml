@@ -1,0 +1,165 @@
+@startuml
+
+package src.world{
+
+abstract class Human
+{
+	-name : String
+	-location : Places
+	-mood : Moods
+    +say(message : String, speech : Speeches, h : Human) : void
+    +say(message : String, speech : Speeches) : void
+    +replace(p : Places, t : TypeWalking) : void
+	+see(h : Human) : void
+}
+
+class Accountant
+{
+    -name : String
+    +payUp() : void
+    +think(about : String) : void
+    +lookDirection(direction : String) : void
+}
+
+class Clothes
+{
+    -clothes : String
+}
+
+class Courier
+{
+    -name : String
+    -accessories : String
+}
+
+class President
+{
+    -name : String
+}
+
+class Secretary
+{
+    -name : String
+    +lunge(h : Human) : void
+    +grab(what : Accountant.Clothes.getClothes()) : void
+    +pull(h : Human, p : Places) : void
+}
+
+class Face {
+    -description_chin : String
+    -description_cheeks : String
+}
+class Manager
+{
+    -name : String
+    +recognition(h : Human, status : Boolean) : void
+    +hide(how : String) : void
+}
+
+
+class Place
+{
+    -name : Places
+    -condition : String
+    +getName() : String
+    +addPeople(p : Human) : void
+    +getPeople() : void
+
+}
+
+'enum Places
+'{
+'Street
+'Building
+'Hall
+'Chancellery
+'Secretary_room
+'Chairman_office
+'Door
+'}
+
+enum TypeWalking
+{
+Walk
+Rush
+Run
+}
+
+enum Moods
+{
+Shocked (потрясенный)
+Stunned (поразился)
+Confused (смятенный)
+Crying (плачущий)
+Neutral
+Staring_eyes (вытаращенные глаза)
+}
+
+enum Speeches
+{
+Shout
+Formidable_voice
+}
+
+}
+
+package src.actions{
+
+
+
+interface Talkable
+{
++say(message : String, speech : Speeches, h : Human) : void
++say(message : String, speech : Speeches) : void
+}
+
+interface Seen
+{
++see(h : Human) : void
++see(h : Human) : void
+}
+
+
+}
+package src {
+class Main
+{
++main(String[]) : void
+}
+}
+
+package src.error {
+
+class RuntimeException {}
+class Exception {}
+class NameError {
+    +NameError(errorMessage : String) : void
+}
+class NothingClothesError {
+    +NothingClothesError(errorMessage : String) : void
+}
+}
+RuntimeException <|- NameError
+Exception <|- NothingClothesError
+
+'Talkable <|-- Human
+
+
+
+Human <|-- Courier
+Human <|-- Accountant
+Human <|-- President
+Human <|-- Secretary
+Human <|-- Manager
+
+Secretary +-- Face
+Accountant +-- Clothes
+
+Seen <|-- Human
+Talkable <|-- Human
+
+
+
+
+
+@enduml
