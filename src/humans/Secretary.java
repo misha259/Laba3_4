@@ -1,10 +1,13 @@
 package humans;
 
-import Locations.Place;
+import locations.Place;
 
 public class Secretary extends Human{
 
-    final Face face;
+    private final Face face;
+    private String lyingPlace;
+    private String lieDescription;
+    private String thing;
 
     public Secretary(String name) {
         super(name);
@@ -37,13 +40,33 @@ public class Secretary extends Human{
         System.out.printf(this + " потрясла " + h + ". ");
     }
 
-    public void pull (Human h, Place p){
+    public void pull(Human h, Place p){
         h.setLocation(p);
         this.setLocation(p);
         System.out.printf(this.getName() + " потащила " + h + " в " + p + ". ");
     }
 
+    public void lie(String furniture, String how){
+        this.lyingPlace = furniture;
+        this.lieDescription = how;
+        System.out.printf(this + " лежит на " + this.lyingPlace + " " + this.lieDescription + ". ");
+    }
+
+    public void standUp(){
+        this.lyingPlace = "";
+        this.lieDescription = "";
+        System.out.printf(this + " встала. ");
+    }
+
     public String getFaceDescription(){
         return "У " + this.getName()+ " " + this.face.getDescription() + ". ";
+    }
+
+    public void setThing(String thing){
+        this.thing = thing;
+    }
+
+    public String getThing(){
+        return this + " держит " + this.thing + ". ";
     }
 }

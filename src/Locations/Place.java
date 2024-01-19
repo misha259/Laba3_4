@@ -1,14 +1,13 @@
-package Locations;
+package locations;
 
 import exception.NameError;
-import humans.Accountant;
 import humans.Human;
 
 import java.util.ArrayList;
 
 public class Place {
     private String name;
-    private ArrayList<Human> peopleList = new ArrayList<>();
+    private ArrayList<Human> peopleList = new ArrayList<Human>();
     private String condition;
     public Place(String name) throws NameError {
         this.name = name;
@@ -19,20 +18,13 @@ public class Place {
         return name;
     }
     public void addPeople(Human h) {
-        // здесь не надо добавлять код, чтобы в location человека
-        // сеттилось значение этого места, поскольку это код
-        // вызывается метод ТОЛЬКО из human.replace и не подразумевается
-        // что его будут юзать прямо из файла Main
         this.peopleList.add(h);
     }
     public void removePeople(Human h) {
         this.peopleList.remove(h);
     }
     public String getPeople(){
-        String peopleInString = "В " + this.getName() + " находятся:";
-        peopleInString = peopleInString + peopleList.toString().replace('[',' ').replace(']',' ');
-
-        return peopleInString;
+        return peopleList.toString().replace('[',' ').replace(']',' ');
     }
     public void setCondition(String condition){this.condition = condition;}
     public String getCondition(){

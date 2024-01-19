@@ -1,15 +1,16 @@
 package humans;
 
-import Locations.Place;
+import locations.Place;
 import exception.NameError;
 import intefaces.Talkable;
-import Moodings.Moods;
+import intefaces.Seen;
+import moodings.Moods;
 import actionsTypes.*;
 
-public abstract class Human implements Talkable {
+public abstract class Human implements Talkable, Seen {
     private final String name;
     private Place location;
-    private Moods mood;
+    private Moods mood = Moods.Neutral;
     private String thoughts;
     protected boolean shakeStatus = false;
 
@@ -18,8 +19,8 @@ public abstract class Human implements Talkable {
 
     public Human(String name) throws NameError {
         this.name = name;
-        if (name.isEmpty() || name.charAt(0) == (' '|'.'|','))
-            throw new NameError("Имя персонажа никак не может начинаться с пробела или отстутсвовать!");
+        if (name.isEmpty() || name.charAt(0) == ' ')
+            throw new NameError("Имя персонажа никак не может начинаться с пробела или отсутствовать!");
     }
 
     public String getName() {
@@ -40,7 +41,6 @@ public abstract class Human implements Talkable {
 
     public void setMood(Moods m) {
         this.mood = m;
-        //System.out.printf(this + " смена состояния на: " + this.mood.getName() + ". ");
     }
 
     public String getMood() {
@@ -65,23 +65,23 @@ public abstract class Human implements Talkable {
     }
 
     public void replace(Place p, TypeWalking t) {
-        // я считаю, что лучше сделать с enum'ами потому, что везде
-        // будет один и тот же код, но с разными принтами
-        // как мне кажется это бессмысленно
-
         this.setLocation(p);
         System.out.printf(this + " " + t.getName() + " в локацию: " + p.getName() + ". ");
     }
 
+    @Override
     public void see() {
-        System.out.printf("Здесь какой-то вывод с тем, что видит " + this + ". ");
+        System.out.printf(this + " видит" + this.getLocation().getPeople() + ". ");
     }
-
+    @Override
+    public void see(String what){
+        System.out.printf(this + " видит, что " + what + ". ");
+    }
     public void setIsRecognition(Boolean status) {
         this.isRecognition = status;
     }
 
-    public Boolean getIsRecognition() {
+    public boolean getIsRecognition() {
         return this.isRecognition;
     }
 

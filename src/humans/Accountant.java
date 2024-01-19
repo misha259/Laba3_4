@@ -4,7 +4,7 @@ import exception.NoClothesError;
 
 public class Accountant extends Human {
     private boolean payStatus;
-    String direction;
+    private String direction;
 
     final Clothes clothes;
 

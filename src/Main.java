@@ -1,11 +1,10 @@
-import Locations.Place;
-import Moodings.Moods;
+import locations.Place;
+import moodings.Moods;
 import actionsTypes.Speeches;
 import actionsTypes.TypeWalking;
 import exception.NameError;
 import exception.NoClothesError;
 import humans.*;
-import humans.Secretary.Face;
 import sounds.Sound;
 
 public class Main {
@@ -49,7 +48,7 @@ public class Main {
             zaveduyushiy.runFrom(secretary_room, hall);
             zaveduyushiy.recognition(buhgalter, false);
 
-            zaveduyushiy.setHide("бесследно");
+            zaveduyushiy.setHideStatus("бесследно");
             System.out.printf(zaveduyushiy.hide());
 
 
@@ -73,14 +72,17 @@ public class Main {
 
             buhgalter.see();
 
-            //описание комнаты????+see + добавить методы секретарше
+            secretary.lie("кожаное кресло", "вытянув ноги до середины комнаты");
+            secretary.setThing("мокрый платок в руке");
+            System.out.printf(secretary.getThing());
 
             secretary.setMood(Moods.Crying);
             System.out.printf(secretary.getMood());
             System.out.printf(secretary.getFaceDescription());
 
-            secretary.see();
+            secretary.see("кто-то вошёл");
 
+            secretary.standUp();
             secretary.lunge(buhgalter);
             secretary.grab(buhgalter.getClothes());
             secretary.shake(buhgalter);
@@ -88,7 +90,6 @@ public class Main {
             secretary.say("Слава богу! Нашелся хоть один храбрый! Все разбежались, все предали! Идемте, идемте к нему, я не знаю, что делать!", Speeches.Shout, buhgalter);
             System.out.printf(secretary.getMood());
             secretary.pull(buhgalter, chairman_office);
-
 
         }
         catch (NoClothesError | NameError e){

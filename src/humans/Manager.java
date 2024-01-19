@@ -1,6 +1,6 @@
 package humans;
 
-import Locations.Place;
+import locations.Place;
 
 public class Manager extends Human {
 
@@ -20,10 +20,9 @@ public class Manager extends Human {
         } else {
             System.out.printf(this+ " не узнал " + h + ". ");
         }
-
     }
 
-    public void setHide(String how) {
+    public void setHideStatus(String how) {
         this.hideStatus = how;
     }
     public String hide(){

@@ -1,4 +1,4 @@
-package Moodings;
+package moodings;
 
 public enum Moods
 {
