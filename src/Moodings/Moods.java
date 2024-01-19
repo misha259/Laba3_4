@@ -7,14 +7,14 @@ public enum Moods
     Confused("смятенный"),
     Crying("плачущий"),
     Neutral("нейтральное"),
-    Staring_eyes("вытаращенные глаза");
+    StaringEyes("вытаращенные глаза");
     private final String mood;
 
     Moods(String mood) {
         this.mood = mood;
     }
 
-    public String getMood() {
+    public String getName() {
         return mood;
     }
 }

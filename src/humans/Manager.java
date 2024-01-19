@@ -4,27 +4,29 @@ import Locations.Place;
 
 public class Manager extends Human {
 
-    private String hide_status;
+    private String hideStatus;
     public Manager(String name) {
         super(name);
     }
 
-    public void runFrom(Human h, Place p){
-        p.removePeople(h);
-        System.out.println(this.getName() + " выбежал из " + p.getName());
+    public void runFrom(Place startP, Place finishP){
+        this.setLocation(finishP);
+        System.out.printf(this + " выбежал из " + startP + ". ");
     }
     public void recognition(Human h, Boolean status) {
         h.setIsRecognition(status);
         if (status) {
-            System.out.println(this.getName() + " узнал " + h);
+            System.out.printf(this + " узнал " + h + ". ");
         } else {
-            System.out.println(this.getName() + " не узнал " + h.getName());
+            System.out.printf(this+ " не узнал " + h + ". ");
         }
 
     }
 
-    public void hide(String how) {
-        this.hide_status = how;
-        System.out.println(this.getName() + " исчез " + this.hide_status);
+    public void setHide(String how) {
+        this.hideStatus = how;
+    }
+    public String hide(){
+        return (this + " исчез " + this.hideStatus + ". ");
     }
 }

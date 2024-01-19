@@ -2,8 +2,8 @@ package actionsTypes;
 
 public enum Speeches
 {
-    Shout("кричала"),
-    Formidable_voice("доносился грозный голос");
+    Shout("кричал"),
+    FormidableVoice("доносился грозный голос");
     private final String type;
 
     Speeches(String type) {

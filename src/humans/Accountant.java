@@ -3,7 +3,7 @@ package humans;
 import exception.NoClothesError;
 
 public class Accountant extends Human {
-    private boolean pay_status;
+    private boolean payStatus;
     String direction;
 
     final Clothes clothes;
@@ -19,21 +19,18 @@ public class Accountant extends Human {
     }
 
     public void payUp() {
-        pay_status = true;
-        if (pay_status) {
-            System.out.println(this.getName() + " расплатился успешно");
+        payStatus = true;
+        if (payStatus) {
+            System.out.printf(this + " расплатился успешно. ");
         } else {
-            System.out.println(this.getName() + " расплатился не успешно");
+            System.out.printf(this + " расплатился не успешно. ");
         }
-
-    }
-
-    public void think(String about) {
 
     }
 
     public void lookDirection(String direction) {
         this.direction = direction;
+        System.out.printf(this + " посмотрел в направлении " + this.direction + ". ");
     }
 
     private static class Clothes {

@@ -9,10 +9,10 @@ public class Secretary extends Human{
     public Secretary(String name) {
         super(name);
         face = new Face();
-        face.setDescription("Весь подбородок был вымазан губной помадой", "по персиковым щекам ползли с ресниц потоки раскисшей краски");
+        face.setDescription("весь подбородок был вымазан губной помадой", "по персиковым щекам ползли с ресниц потоки раскисшей краски");
     }
 
-    public static class Face {
+    public class Face {
         String description_chin;
         String description_cheeks;
         public void setDescription(String chin, String cheeks){
@@ -26,17 +26,24 @@ public class Secretary extends Human{
     }
 
     public void lunge(Human h){
-        System.out.println(this.getName() + " кинулся к " + h.getName());
+        System.out.printf(this + " кинулся к " + h + ". ");
     }
     public void grab(String clothes){
-        System.out.println(this.getName() + " вцепилась в " + clothes);
+        System.out.printf(this + " вцепился в " + clothes + ". ");
     }
+
     public void shake(Human h){
-        h.shake_status = true;
-        System.out.println(this.getName() + " потрясла " + h.getName());
+        h.shakeStatus = true;
+        System.out.printf(this + " потрясла " + h + ". ");
     }
+
     public void pull (Human h, Place p){
         h.setLocation(p);
-        setLocation(p);
+        this.setLocation(p);
+        System.out.printf(this.getName() + " потащила " + h + " в " + p + ". ");
+    }
+
+    public String getFaceDescription(){
+        return "У " + this.getName()+ " " + this.face.getDescription() + ". ";
     }
 }

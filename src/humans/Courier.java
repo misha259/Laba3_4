@@ -12,6 +12,9 @@ public class Courier extends Human {
     }
 
     public String getAccessories() {
-        return accessories;
+        return this + " имел " + accessories + ". ";
+    }
+    public void run(){
+        System.out.printf(this + " бежит по локации " + this.getLocation() + ". ");
     }
 }

@@ -11,14 +11,15 @@ public abstract class Human implements Talkable {
     private Place location;
     private Moods mood;
     private String thoughts;
-    public boolean shake_status;
+    protected boolean shakeStatus = false;
 
-    private Boolean isRecognition;
+
+    private boolean isRecognition;
 
     public Human(String name) throws NameError {
         this.name = name;
-        if(name.isEmpty())
-            throw new NameError("Персонаж не может быть создан без имени!");
+        if (name.isEmpty() || name.charAt(0) == (' '|'.'|','))
+            throw new NameError("Имя персонажа никак не может начинаться с пробела или отстутсвовать!");
     }
 
     public String getName() {
@@ -26,6 +27,10 @@ public abstract class Human implements Talkable {
     }
 
     public void setLocation(Place p) {
+        if (this.getLocation() != null) {
+            this.getLocation().removePeople(this);
+        }
+        p.addPeople(this);
         this.location = p;
     }
 
@@ -35,36 +40,41 @@ public abstract class Human implements Talkable {
 
     public void setMood(Moods m) {
         this.mood = m;
-        System.out.println(this.getName() +" смена состояния на:"+ this.mood.getMood());
+        //System.out.printf(this + " смена состояния на: " + this.mood.getName() + ". ");
     }
 
     public String getMood() {
-        return this.getName() + " находится в состоянии:" +this.mood.getMood();
+        return this + " находится в состоянии: " + this.mood.getName() + ". ";
     }
-    public void think(String about){
+
+    public void think(String about) {
         this.thoughts = about;
-        System.out.println(this.thoughts + " подумал " + this.getName());
+        System.out.printf("\"" + this.thoughts + "\"" + " - подумал " + this + ". ");
     }
 
     public void say(String message, Speeches speech, Human h) {
-        System.out.println("\"" + message + "\" - " + speech.getType() + " " + this.getName() + " " + h);
+        if (message == "...")
+            System.out.printf(speech.getType() + " " + this + " " + h + ". ");
+        else System.out.printf("\"" + message + "\" - " + speech.getType() + " " + this + " " + h + ". ");
     }
 
     public void say(String message, Speeches speech) {
-        System.out.println("\"" + message + "\" - " + speech.getType() + " " + this.getName());
+        if (message == "...")
+            System.out.printf(speech.getType() + " " + this + ". ");
+        else System.out.printf("\"" + message + "\" - " + speech.getType() + " " + this + ". ");
     }
 
     public void replace(Place p, TypeWalking t) {
-        if (this.getLocation() != null) {
-            this.getLocation().removePeople(this);
-        }
-        p.addPeople(this);
+        // я считаю, что лучше сделать с enum'ами потому, что везде
+        // будет один и тот же код, но с разными принтами
+        // как мне кажется это бессмысленно
+
         this.setLocation(p);
-        System.out.println(this.getName() + " " + t.getName() + " в локацию: " + p.getName());
+        System.out.printf(this + " " + t.getName() + " в локацию: " + p.getName() + ". ");
     }
 
-    public void see(Human h) {
-
+    public void see() {
+        System.out.printf("Здесь какой-то вывод с тем, что видит " + this + ". ");
     }
 
     public void setIsRecognition(Boolean status) {
@@ -82,12 +92,21 @@ public abstract class Human implements Talkable {
 
     @Override
     public boolean equals(Object obj) {
-        return obj.hashCode() == this.hashCode();
+        if (obj == this) {
+            return true;
+        }
+
+        if (obj == null || obj.getClass() != getClass()) {
+            return false;
+        }
+
+        Human human = (Human) obj;
+        return human.name.equals(name) && human.thoughts.equals(thoughts) && human.location.equals(location) && human.mood.equals(mood) && human.isRecognition == isRecognition;
     }
 
     @Override
     public String toString() {
-        return "персонаж " + this.getName();
+        return "(персонаж) " + this.getName();
     }
 
 }
