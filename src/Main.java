@@ -5,7 +5,6 @@ import actionsTypes.TypeWalking;
 import exception.NameError;
 import exception.NoClothesError;
 import humans.*;
-import sounds.Sound;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +21,23 @@ public class Main {
             Place secretary_room = new Place("секретарская");
             Place chairman_office = new Place("кабинет председателя комиссии");
             Place unknown_room = new Place("неизвестная комната");
+            class Sound {
+                private String name;
 
+                private boolean isHeard = false;
+                public Sound(String name) throws NameError {
+                    this.name = name;
+                    if(name.isEmpty() || name.charAt(0) == ' ')
+                        throw new NameError("Название звука на может начинаться с пробела или отсуствовать!");
+                }
+                public String getName() {
+                    return name;
+                }
+                public void heard(){
+                    this.isHeard = true;
+                    System.out.printf("Послышался " + this + ". ");
+                }
+            }
 
             buhgalter.payUp();
             buhgalter.replace(building, TypeWalking.Walk);
