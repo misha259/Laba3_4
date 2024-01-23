@@ -1,16 +1,17 @@
 package humans;
 
+import action.types.Speeches;
+import action.types.TypeWalking;
 import locations.Place;
 import exception.NameError;
 import intefaces.Talkable;
 import intefaces.Seen;
 import moodings.Moods;
-import actionsTypes.*;
 
 public abstract class Human implements Talkable, Seen {
     private final String name;
     private Place location;
-    private Moods mood = Moods.Neutral;
+    private Moods mood = Moods.NEUTRAL;
     private String thoughts;
     protected boolean shakeStatus = false;
 
@@ -73,10 +74,12 @@ public abstract class Human implements Talkable, Seen {
     public void see() {
         System.out.printf(this + " видит" + this.getLocation().getPeople() + ". ");
     }
+
     @Override
-    public void see(String what){
+    public void see(String what) {
         System.out.printf(this + " видит, что " + what + ". ");
     }
+
     public void setIsRecognition(Boolean status) {
         this.isRecognition = status;
     }
@@ -87,7 +90,7 @@ public abstract class Human implements Talkable, Seen {
 
     @Override
     public int hashCode() {
-        return super.hashCode() + this.getName().hashCode();
+        return super.hashCode() + this.getName().hashCode() + this.thoughts.hashCode() + this.mood.hashCode();
     }
 
     @Override

@@ -8,6 +8,10 @@ public class Accountant extends Human {
 
     final Clothes clothes;
 
+    public void setPayStatus(boolean b) {
+        this.payStatus = b;
+    }
+
     public Accountant(String name, String startClothes) throws NoClothesError {
         super(name);
         if (startClothes.isEmpty())
@@ -19,7 +23,6 @@ public class Accountant extends Human {
     }
 
     public void payUp() {
-        payStatus = true;
         if (payStatus) {
             System.out.printf(this + " расплатился успешно. ");
         } else {

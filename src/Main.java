@@ -1,7 +1,7 @@
 import locations.Place;
 import moodings.Moods;
-import actionsTypes.Speeches;
-import actionsTypes.TypeWalking;
+import action.types.Speeches;
+import action.types.TypeWalking;
 import exception.NameError;
 import exception.NoClothesError;
 import humans.*;
@@ -22,25 +22,28 @@ public class Main {
             Place chairman_office = new Place("кабинет председателя комиссии");
             Place unknown_room = new Place("неизвестная комната");
             class Sound {
-                private String name;
+                private final String name;
+                boolean isHeard = false;
 
-                private boolean isHeard = false;
                 public Sound(String name) throws NameError {
                     this.name = name;
-                    if(name.isEmpty() || name.charAt(0) == ' ')
+                    if (name.isEmpty() || name.charAt(0) == ' ')
                         throw new NameError("Название звука на может начинаться с пробела или отсуствовать!");
                 }
+
                 public String getName() {
                     return name;
                 }
-                public void heard(){
+
+                public void heard() {
                     this.isHeard = true;
                     System.out.printf("Послышался " + this + ". ");
                 }
             }
 
+            buhgalter.setPayStatus(true);
             buhgalter.payUp();
-            buhgalter.replace(building, TypeWalking.Walk);
+            buhgalter.replace(building, TypeWalking.WALK);
             buhgalter.replace(hall, TypeWalking.Rush);
 
             chancellery.setCondition("царила какая-то суматоха");
@@ -50,12 +53,12 @@ public class Main {
             courier.run();
             courier.setAccessories("сбившийся на затылок платочек");
             System.out.printf(courier.getAccessories());
-            courier.setMood(Moods.StaringEyes);
+            courier.setMood(Moods.STARINGEYES);
             System.out.printf(courier.getMood());
 
-            courier.say("Нету, нету, нету, милые мои! Пиджак и штаны тут, а в пиджаке ничего нету!", Speeches.Shout);
+            courier.say("Нету, нету, нету, милые мои! Пиджак и штаны тут, а в пиджаке ничего нету!", Speeches.SHOUT);
 
-            courier.replace(unknown_room, TypeWalking.Disappear);
+            courier.replace(unknown_room, TypeWalking.DISAPPEAR);
 
             Sound breakingDishes = new Sound("битьё посуды");
             breakingDishes.heard();
@@ -67,20 +70,20 @@ public class Main {
             System.out.printf(zaveduyushiy.hide());
 
 
-            buhgalter.setMood(Moods.Shocked);
+            buhgalter.setMood(Moods.SHOCKED);
             System.out.printf(buhgalter.getMood());
 
-            buhgalter.replace(secretary_room,TypeWalking.Walk);
+            buhgalter.replace(secretary_room, TypeWalking.WALK);
 
-            buhgalter.setMood(Moods.Stunned);
+            buhgalter.setMood(Moods.STUNNED);
             System.out.printf(buhgalter.getMood());
 
 
             president.setLocation(chairman_office);
-            president.say("...", Speeches.FormidableVoice);
+            president.say("...", Speeches.FORMIDABLEVOICE);
             buhgalter.think("Распекает, что ли, кого?");
 
-            buhgalter.setMood(Moods.Confused);
+            buhgalter.setMood(Moods.CONFUSED);
             System.out.printf(buhgalter.getMood());
 
             buhgalter.lookDirection("назад");
@@ -91,7 +94,7 @@ public class Main {
             secretary.setThing("мокрый платок в руке");
             System.out.printf(secretary.getThing());
 
-            secretary.setMood(Moods.Crying);
+            secretary.setMood(Moods.CRYING);
             System.out.printf(secretary.getMood());
             System.out.printf(secretary.getFaceDescription());
 
@@ -102,12 +105,11 @@ public class Main {
             secretary.grab(buhgalter.getClothes());
             secretary.shake(buhgalter);
 
-            secretary.say("Слава богу! Нашелся хоть один храбрый! Все разбежались, все предали! Идемте, идемте к нему, я не знаю, что делать!", Speeches.Shout, buhgalter);
+            secretary.say("Слава богу! Нашелся хоть один храбрый! Все разбежались, все предали! Идемте, идемте к нему, я не знаю, что делать!", Speeches.SHOUT, buhgalter);
             System.out.printf(secretary.getMood());
             secretary.pull(buhgalter, chairman_office);
 
-        }
-        catch (NoClothesError | NameError e){
+        } catch (NoClothesError | NameError e) {
             System.out.println(e.getMessage());
         }
     }

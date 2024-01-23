@@ -1,13 +1,12 @@
 package moodings;
 
-public enum Moods
-{
-    Shocked("потрясенный"),
-    Stunned("пораженный"),
-    Confused("смятенный"),
-    Crying("плачущий"),
-    Neutral("нейтральное"),
-    StaringEyes("вытаращенные глаза");
+public enum Moods {
+    SHOCKED("потрясенный"),
+    STUNNED("пораженный"),
+    CONFUSED("смятенный"),
+    CRYING("плачущий"),
+    NEUTRAL("нейтральное"),
+    STARINGEYES("вытаращенные глаза");
     private final String mood;
 
     Moods(String mood) {

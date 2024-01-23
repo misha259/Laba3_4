@@ -1,7 +1,10 @@
 package intefaces;
-import actionsTypes.*;
+
+import action.types.Speeches;
 import humans.*;
+
 public interface Talkable {
-    public void say(String message, Speeches speech, Human h);
-    public void say(String message, Speeches speech);
+    void say(String message, Speeches speech, Human h);
+
+    void say(String message, Speeches speech);
 }

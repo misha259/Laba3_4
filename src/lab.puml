@@ -95,8 +95,8 @@ Run
 
 enum Speeches
 {
-Shout
-FormidableVoice
+SHOUT
+FORMIDABLEVOICE
 }
 
 }
@@ -112,12 +112,12 @@ class Sound {
 package src.moodings{
 enum Moods
 {
-Shocked
-Stunned
-Confused
-Crying
-Neutral
-StaringEyes
+SHOCKED
+STUNNED
+CONFUSED
+CRYING
+NEUTRAL
+STARINGEYES
 }
 
 

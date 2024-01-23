@@ -1,11 +1,10 @@
-package actionsTypes;
+package action.types;
 
-public enum TypeWalking
-{
-    Walk("вошёл"),
-    Disappear("скрылся за дверью"),
+public enum TypeWalking {
+    WALK("вошёл"),
+    DISAPPEAR("скрылся за дверью"),
     Rush("устремился"),
-    Run("пробежал");
+    RUN("пробежал");
     private final String name;
 
     TypeWalking(String name) {
