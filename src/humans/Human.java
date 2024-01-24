@@ -15,7 +15,6 @@ public abstract class Human implements Talkable, Seen {
     private final String name;
     private Place location;
     private Moods mood = Moods.NEUTRAL;
-    private String thoughts;
     protected boolean shakeStatus = false;
 
     private boolean isRecognition;
@@ -94,7 +93,7 @@ public abstract class Human implements Talkable, Seen {
 
     @Override
     public int hashCode() {
-        return super.hashCode() + this.getName().hashCode() + this.thoughts.hashCode() + this.mood.hashCode();
+        return super.hashCode() + this.getName().hashCode() + this.mood.hashCode();
     }
 
     @Override
@@ -108,7 +107,7 @@ public abstract class Human implements Talkable, Seen {
         }
 
         Human human = (Human) obj;
-        return human.name.equals(name) && human.thoughts.equals(thoughts) && human.location.equals(location) && human.mood.equals(mood) && human.isRecognition == isRecognition;
+        return human.name.equals(name)  && human.location.equals(location) && human.mood.equals(mood) && human.isRecognition == isRecognition;
     }
 
     @Override
