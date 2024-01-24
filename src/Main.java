@@ -53,7 +53,7 @@ public class Main {
             courier.run();
             courier.setAccessories("сбившийся на затылок платочек");
             System.out.printf(courier.getAccessories());
-            courier.setMood(Moods.STARINGEYES);
+            courier.setMood(Moods.CRAZYNESS);
             System.out.printf(courier.getMood());
 
             courier.say("Нету, нету, нету, милые мои! Пиджак и штаны тут, а в пиджаке ничего нету!", Speeches.SHOUT);
@@ -82,12 +82,12 @@ public class Main {
 
             president.setLocation(chairman_office);
             president.say("...", Speeches.FORMIDABLEVOICE);
-            buhgalter.think("Распекает, что ли, кого?");
+            buhgalter.getAccountantBrain().think("Распекает, что ли, кого?");
 
             buhgalter.setMood(Moods.CONFUSED);
             System.out.printf(buhgalter.getMood());
 
-            buhgalter.lookDirection("назад");
+            buhgalter.lookDirection(180);
 
             buhgalter.see();
 

@@ -7,8 +7,8 @@ public class Courier extends Human {
         super(name);
     }
 
-    public void setAccessories(String a) {
-        this.accessories = a;
+    public void setAccessories(String accessory) {
+        this.accessories = accessory;
     }
 
     public String getAccessories() {

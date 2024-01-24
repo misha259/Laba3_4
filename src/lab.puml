@@ -70,7 +70,7 @@ class Manager
     -hideStatus : String
     +recognition(h : Human, status : boolean) : void
     +hide(how : String) : void
-    +runFrom(startP : Place , finishP :  Place) : void
+    +runFrom(startPlace : Place , finishPlace :  Place) : void
 }
 
 }
@@ -117,7 +117,7 @@ STUNNED
 CONFUSED
 CRYING
 NEUTRAL
-STARINGEYES
+CRAZYNESS
 }
 
 

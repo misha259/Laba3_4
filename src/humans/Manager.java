@@ -10,17 +10,17 @@ public class Manager extends Human {
         super(name);
     }
 
-    public void runFrom(Place startP, Place finishP) {
-        this.setLocation(finishP);
-        System.out.printf(this + " выбежал из " + startP + ". ");
+    public void runFrom(Place startPlace, Place finishPlace) {
+        this.setLocation(finishPlace);
+        System.out.printf(this + " выбежал из " + startPlace + ". ");
     }
 
-    public void recognition(Human h, Boolean status) {
-        h.setIsRecognition(status);
+    public void recognition(Human humanArgument, Boolean status) {
+        humanArgument.setIsRecognition(status);
         if (status) {
-            System.out.printf(this + " узнал " + h + ". ");
+            System.out.printf(this + " узнал " + humanArgument + ". ");
         } else {
-            System.out.printf(this + " не узнал " + h + ". ");
+            System.out.printf(this + " не узнал " + humanArgument + ". ");
         }
     }
 

@@ -29,23 +29,23 @@ public class Secretary extends Human {
         }
     }
 
-    public void lunge(Human h) {
-        System.out.printf(this + " кинулся к " + h + ". ");
+    public void lunge(Human humanArgument) {
+        System.out.printf(this + " кинулся к " + humanArgument + ". ");
     }
 
     public void grab(String clothes) {
         System.out.printf(this + " вцепился в " + clothes + ". ");
     }
 
-    public void shake(Human h) {
-        h.shakeStatus = true;
-        System.out.printf(this + " потрясла " + h + ". ");
+    public void shake(Human humanArgument) {
+        humanArgument.shakeStatus = true;
+        System.out.printf(this + " потрясла " + humanArgument + ". ");
     }
 
-    public void pull(Human h, Place p) {
-        h.setLocation(p);
-        this.setLocation(p);
-        System.out.printf(this.getName() + " потащила " + h + " в " + p + ". ");
+    public void pull(Human humanArgument, Place placeArgument) {
+        humanArgument.setLocation(placeArgument);
+        this.setLocation(placeArgument);
+        System.out.printf(this.getName() + " потащила " + humanArgument + " в " + placeArgument + ". ");
     }
 
     public void lie(String furniture, String how) {

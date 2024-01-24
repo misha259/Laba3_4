@@ -8,6 +8,7 @@ import intefaces.Talkable;
 import intefaces.Seen;
 import moodings.Moods;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public abstract class Human implements Talkable, Seen {
@@ -17,48 +18,52 @@ public abstract class Human implements Talkable, Seen {
     private String thoughts;
     protected boolean shakeStatus = false;
 
-
     private boolean isRecognition;
 
     public Human(String name) throws NameError {
         this.name = name;
+
         if (name.isEmpty() || name.charAt(0) == ' ')
             throw new NameError("Имя персонажа никак не может начинаться с пробела или отсутствовать!");
+    }
+    public class Brain {
+        ArrayList<String> Saw = new ArrayList<>();
+
+        public void think(String about) {
+            Saw.add(about);
+            int lastSaw = Saw.size() - 1;
+            System.out.printf("\"" + Saw.get(lastSaw) + "\"" + " - подумал " + this + ". ");
+        }
     }
 
     public String getName() {
         return name;
     }
 
-    public void setLocation(Place p) {
+    public void setLocation(Place placeArgument) {
         if (this.getLocation() != null) {
             this.getLocation().removePeople(this);
         }
-        p.addPeople(this);
-        this.location = p;
+        placeArgument.addPeople(this);
+        this.location = placeArgument;
     }
 
     public Place getLocation() {
         return this.location;
     }
 
-    public void setMood(Moods m) {
-        this.mood = m;
+    public void setMood(Moods mooding) {
+        this.mood = mooding;
     }
 
     public String getMood() {
         return this + " находится в состоянии: " + this.mood.getName() + ". ";
     }
 
-    public void think(String about) {
-        this.thoughts = about;
-        System.out.printf("\"" + this.thoughts + "\"" + " - подумал " + this + ". ");
-    }
-
-    public void say(String message, Speeches speech, Human h) {
+    public void say(String message, Speeches speech, Human humanArgument) {
         if (Objects.equals(message, "..."))
-            System.out.printf(speech.getType() + " " + this + " " + h + ". ");
-        else System.out.printf("\"" + message + "\" - " + speech.getType() + " " + this + " " + h + ". ");
+            System.out.printf(speech.getType() + " " + this + " " + humanArgument + ". ");
+        else System.out.printf("\"" + message + "\" - " + speech.getType() + " " + this + " " + humanArgument + ". ");
     }
 
     public void say(String message, Speeches speech) {
@@ -67,9 +72,9 @@ public abstract class Human implements Talkable, Seen {
         else System.out.printf("\"" + message + "\" - " + speech.getType() + " " + this + ". ");
     }
 
-    public void replace(Place p, TypeWalking t) {
-        this.setLocation(p);
-        System.out.printf(this + " " + t.getName() + " в локацию: " + p.getName() + ". ");
+    public void replace(Place placement, TypeWalking replacementType) {
+        this.setLocation(placement);
+        System.out.printf(this + " " + replacementType.getName() + " в локацию: " + placement.getName() + ". ");
     }
 
     @Override
