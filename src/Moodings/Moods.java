@@ -6,7 +6,7 @@ public enum Moods {
     CONFUSED("смятенный"),
     CRYING("плачущий"),
     NEUTRAL("нейтральное"),
-    STARINGEYES("вытаращенные глаза");
+    CRAZYNESS("сумашедшая");
     private final String mood;
 
     Moods(String mood) {

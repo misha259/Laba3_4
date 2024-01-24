@@ -20,12 +20,12 @@ public class Place {
         return name;
     }
 
-    public void addPeople(Human h) {
-        this.peopleList.add(h);
+    public void addPeople(Human humanArgument) {
+        this.peopleList.add(humanArgument);
     }
 
-    public void removePeople(Human h) {
-        this.peopleList.remove(h);
+    public void removePeople(Human humanArgument) {
+        this.peopleList.remove(humanArgument);
     }
 
     public String getPeople() {
