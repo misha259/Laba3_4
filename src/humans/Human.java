@@ -8,6 +8,8 @@ import intefaces.Talkable;
 import intefaces.Seen;
 import moodings.Moods;
 
+import java.util.Objects;
+
 public abstract class Human implements Talkable, Seen {
     private final String name;
     private Place location;
@@ -54,13 +56,13 @@ public abstract class Human implements Talkable, Seen {
     }
 
     public void say(String message, Speeches speech, Human h) {
-        if (message == "...")
+        if (Objects.equals(message, "..."))
             System.out.printf(speech.getType() + " " + this + " " + h + ". ");
         else System.out.printf("\"" + message + "\" - " + speech.getType() + " " + this + " " + h + ". ");
     }
 
     public void say(String message, Speeches speech) {
-        if (message == "...")
+        if (Objects.equals(message, "..."))
             System.out.printf(speech.getType() + " " + this + ". ");
         else System.out.printf("\"" + message + "\" - " + speech.getType() + " " + this + ". ");
     }
@@ -84,9 +86,6 @@ public abstract class Human implements Talkable, Seen {
         this.isRecognition = status;
     }
 
-    public boolean getIsRecognition() {
-        return this.isRecognition;
-    }
 
     @Override
     public int hashCode() {

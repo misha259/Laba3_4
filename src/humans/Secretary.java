@@ -15,7 +15,7 @@ public class Secretary extends Human {
         face.setDescription("весь подбородок был вымазан губной помадой", "по персиковым щекам ползли с ресниц потоки раскисшей краски");
     }
 
-    public class Face {
+    public class Face { //no static because we cant create face without secretary
         String description_chin;
         String description_cheeks;
 
@@ -25,8 +25,7 @@ public class Secretary extends Human {
         }
 
         public String getDescription() {
-            String message = description_chin + ", " + description_cheeks;
-            return message;
+            return description_chin + ", " + description_cheeks;
         }
     }
 

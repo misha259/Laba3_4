@@ -3,7 +3,6 @@ package humans;
 import locations.Place;
 
 public class Manager extends Human {
-    static {}
 
     private String hideStatus;
 

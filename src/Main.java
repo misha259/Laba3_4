@@ -37,7 +37,7 @@ public class Main {
 
                 public void heard() {
                     this.isHeard = true;
-                    System.out.printf("Послышался " + this + ". ");
+                    System.out.printf("Послышался " + this.getName() + ". ");
                 }
             }
 
@@ -62,6 +62,7 @@ public class Main {
 
             Sound breakingDishes = new Sound("битьё посуды");
             breakingDishes.heard();
+
 
             zaveduyushiy.runFrom(secretary_room, hall);
             zaveduyushiy.recognition(buhgalter, false);

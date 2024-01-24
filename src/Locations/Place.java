@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Place {
     private final String name;
-    private final ArrayList<Human> peopleList = new ArrayList<Human>();
+    private final ArrayList<Human> peopleList = new ArrayList<>();
     private String condition;
 
     public Place(String name) throws NameError {
