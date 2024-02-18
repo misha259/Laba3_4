@@ -1,74 +1,61 @@
 package humans;
 
-import locations.Place;
+import enums.Status;
+import interfaces.CreateSound;
+import things.Chair;
+import things.Clothes;
+import things.Platok;
+import things.Sound;
 
-public class Secretary extends Human {
-
+public class Secretary extends Human implements CreateSound {
     private final Face face;
-    private String lyingPlace;
-    private String lieDescription;
-    private String thing;
-
-    public Secretary(String name) {
-        super(name);
-        face = new Face();
-        face.setDescription("весь подбородок был вымазан губной помадой", "по персиковым щекам ползли с ресниц потоки раскисшей краски");
+    private final Hand hand;
+    public Secretary() {
+        this.face = new Face();
+        this.hand = new Hand();
     }
-
-    public class Face { //no static because we cant create face without secretary
-        String description_chin;
-        String description_cheeks;
-
-        public void setDescription(String chin, String cheeks) {
-            this.description_chin = chin;
-            this.description_cheeks = cheeks;
-        }
-
-        public String getDescription() {
-            return description_chin + ", " + description_cheeks;
+    private class Face{ // не делаю static тк лицо не может быть без человека
+        private String description;
+        public void setDescription(String description){
+            this.description = description;
         }
     }
-
-    public void lunge(Human humanArgument) {
-        System.out.printf(this + " кинулся к " + humanArgument + ". ");
+    private class Hand{
+        private final Platok platok;
+        public Hand(){
+            this.platok = new Platok();
+        }
+        public void grabClothes(Clothes clothes){
+            clothes.setCaught(true);
+            System.out.printf("%s вцепилась в лацканы пиджака.%n", Secretary.this);
+        }
     }
-
-    public void grab(String clothes) {
-        System.out.printf(this + " вцепился в " + clothes + ". ");
+    public void sit(Chair chair){
+        chair.setSecretary(this);
+        System.out.printf("%s сидела на %s.%n", this, chair);
     }
-
-    public void shake(Human humanArgument) {
-        humanArgument.shakeStatus = true;
-        System.out.printf(this + " потрясла " + humanArgument + ". ");
+    public void cry(){
+        setStatus(Status.CRYING);
+        hand.platok.getWet();
+        face.setDescription("весь подбородок был вымазан губной помадой, по персиковым щекам ползли с ресниц потоки раскисшей краски");
+        System.out.printf("%s %s. В руках был %s. Лицо было таким: %s.%n", this, getStatus(), hand.platok, face.description);
     }
-
-    public void pull(Human humanArgument, Place placeArgument) {
-        humanArgument.setLocation(placeArgument);
-        this.setLocation(placeArgument);
-        System.out.printf(this.getName() + " потащила " + humanArgument + " в " + placeArgument + ". ");
+    public void see(Accountant accountant){
+        hand.grabClothes(accountant.getClothes());
+        shake(accountant);
+        System.out.printf("%s закричала: %s", this, createSound());
     }
-
-    public void lie(String furniture, String how) {
-        this.lyingPlace = furniture;
-        this.lieDescription = how;
-        System.out.printf(this + " лежит на " + this.lyingPlace + " " + this.lieDescription + ". ");
+    public Sound createSound(){
+        return new Sound("Слава богу! Нашелся хоть один храбрый! Все разбежались, все предали! Идемте, идемте к нему, я не знаю, что делать!");
     }
-
-    public void standUp() {
-        this.lyingPlace = "";
-        this.lieDescription = "";
-        System.out.printf(this + " встала. ");
+    public void shake(Accountant accountant){
+        if(accountant.getClothes().getCaught()) {
+            accountant.setStatus(Status.SHAKING);
+            System.out.printf("%s стала трясти %s.%n", this, accountant);
+        }
     }
-
-    public String getFaceDescription() {
-        return "У " + this.getName() + " " + this.face.getDescription() + ". ";
-    }
-
-    public void setThing(String thing) {
-        this.thing = thing;
-    }
-
-    public String getThing() {
-        return this + " держит " + this.thing + ". ";
+    @Override
+    public String toString(){
+        return "Анна Ричардовна";
     }
 }
