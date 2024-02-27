@@ -14,7 +14,7 @@ public class Secretary extends Human implements CreateSound {
         this.face = new Face();
         this.hand = new Hand();
     }
-    private class Face{ // не делаю static тк лицо не может быть без человека
+    private class Face{
         private String description;
         public void setDescription(String description){
             this.description = description;
