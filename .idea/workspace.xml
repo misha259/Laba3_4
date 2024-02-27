@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ddc5018b-8c6d-4832-9e13-478f33b73a93" name="Changes" comment="dopsa rewrite">
+      <change beforePath="$PROJECT_DIR$/src/humans/Secretary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/humans/Secretary.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2bBA9gRxIRYxZs3K1ZiVNwPOfXK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ddc5018b-8c6d-4832-9e13-478f33b73a93" name="Changes" comment="" />
+      <created>1705677953907</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705677953907</updated>
+    </task>
+    <task id="LOCAL-00001" summary="fix bugs + 4lab">
+      <option name="closed" value="true" />
+      <created>1705679670733</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705679670733</updated>
+    </task>
+    <task id="LOCAL-00002" summary="+local class">
+      <option name="closed" value="true" />
+      <created>1705683148445</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705683148445</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix review">
+      <option name="closed" value="true" />
+      <created>1706010881089</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706010881089</updated>
+    </task>
+    <task id="LOCAL-00004" summary="warning fix + comments to ignored warnings">
+      <option name="closed" value="true" />
+      <created>1706093113570</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706093113570</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix review 3(point 1, half of 2, 4)">
+      <option name="closed" value="true" />
+      <created>1706106428508</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706106428508</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix review 3(point 1, half of 2, 4)">
+      <option name="closed" value="true" />
+      <created>1706106559513</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706106559513</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix review 3(point 1, half of 2, 4)">
+      <option name="closed" value="true" />
+      <created>1706110239481</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706110239481</updated>
+    </task>
+    <task id="LOCAL-00008" summary="dopsa rewrite">
+      <option name="closed" value="true" />
+      <created>1708275547858</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708275547858</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix bugs + 4lab" />
+    <MESSAGE value="+local class" />
+    <MESSAGE value="fix review" />
+    <MESSAGE value="warning fix + comments to ignored warnings" />
+    <MESSAGE value="fix review 3(point 1, half of 2, 4)" />
+    <MESSAGE value="dopsa rewrite" />
+    <option name="LAST_COMMIT_MESSAGE" value="dopsa rewrite" />
+  </component>
+</project>
